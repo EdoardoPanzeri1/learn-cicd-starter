@@ -25,8 +25,3 @@ jobs:
       - name: Build the app
         run: scripts/buildprod.sh
 
-      - name: Build Docker image
-        run: docker build -t ${{ env.DOCKERHUB_NAMESPACE }}/notely:latest .
-
-      - name: Run Docker image
-        run: docker run -e PORT=8080 -e DATABASE_URL=${{ env.DATABASE_URL }} -p 8080:8080 ${{ env.DOCKERHUB_NAMESPACE }}/notely:latest
